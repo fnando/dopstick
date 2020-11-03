@@ -14,6 +14,7 @@ Prefix your message with one of the following:
 ## Unreleased
 
 - [Fixed] Link added to gemspec's meta info now open the correct code browser.
+- [Fixed] Use correct key name for custom funding urls.
 
 ## v0.0.1 - 2020-11-02
 
