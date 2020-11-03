@@ -11,6 +11,10 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
+## Unreleased
+
+- [Fixed] Link added to gemspec's meta info now open the correct code browser.
+
 ## v0.0.1 - 2020-11-02
 
 - Initial release.

@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
 
   github_url = "https://github.com/fnando/dopstick"
-  github_tree_url = "#{github_url}/blob/v#{spec.version}"
+  github_tree_url = "#{github_url}/tree/v#{spec.version}"
 
   spec.homepage = github_url
   spec.metadata["homepage_uri"] = spec.homepage
