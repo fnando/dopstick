@@ -1,0 +1,21 @@
+---
+inherit_gem:
+  rubocop-fnando: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  Exclude:
+    - tmp/**/*
+    - bin/**/*
+    - vendor/**/*
+
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
+    - "**/*.gemspec"
+
+Metrics/ClassLength:
+  Exclude:
+    - test/**/*
+    - "**/*.gemspec"
