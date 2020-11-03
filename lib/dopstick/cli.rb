@@ -30,9 +30,6 @@ module Dopstick
            default: "",
            desc: "Set Paypal account for donations. Defaults to " \
                  "`git config user.paypal`."
-    option :repository,
-           default: "",
-           desc: "Set Github repository name. Defaults to gem name."
     option :description,
            default: "",
            desc: "Set gem description."
