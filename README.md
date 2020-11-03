@@ -1,13 +1,23 @@
-# dopstick
+<p align="center">
+  <a href="https://github.com/fnando/dopstick/">
+    <img width="250" src="https://github.com/fnando/dopstick/raw/main/dopstick.svg" alt="Dopstick">
+  </a>
+</p>
 
-[![Tests](https://github.com/fnando/dopstick/workflows/Tests/badge.svg)](https://github.com/fnando/dopstick)
-[![Code Climate](https://codeclimate.com/github/fnando/dopstick/badges/gpa.svg)](https://codeclimate.com/github/fnando/dopstick)
-[![Gem](https://img.shields.io/gem/v/dopstick.svg)](https://rubygems.org/gems/dopstick)
-[![Gem](https://img.shields.io/gem/dt/dopstick.svg)](https://rubygems.org/gems/dopstick)
+<p align="center">
+  Generate a project skeleton for creating a rubygem.
+</p>
 
-Generate a project skeleton for creating a rubygem.
+<p align="center">
+  <a href="https://github.com/fnando/dopstick"><img src="https://github.com/fnando/dopstick/workflows/Tests/badge.svg" alt="Tests"></a>
+  <a href="https://codeclimate.com/github/fnando/dopstick"><img src="https://codeclimate.com/github/fnando/dopstick/badges/gpa.svg" alt="Code Climate"></a>
+  <a href="https://rubygems.org/gems/dopstick"><img src="https://img.shields.io/gem/v/dopstick.svg" alt="Gem"></a>
+  <a href="https://rubygems.org/gems/dopstick"><img src="https://img.shields.io/gem/dt/dopstick.svg" alt="Gem"></a>
+</p>
 
-Includes:
+---
+
+Features:
 
 - Github templates
 - Changelog
