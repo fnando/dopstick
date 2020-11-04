@@ -14,6 +14,7 @@ Prefix your message with one of the following:
 ## Unreleased
 
 - [Changed] Remove unused `--repository` switch.
+- [Changed] Make `--help` and `-h` work with `dopstick new`.
 
 ## v0.0.2 - 2020-11-02
 

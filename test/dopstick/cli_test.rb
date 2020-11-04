@@ -156,4 +156,23 @@ class CLITest < Minitest::Test
 
     assert gem_root.join("test/support/active_record.rb").file?
   end
+
+  [
+    %w[new ./tmp/newgem --help],
+    %w[new --help],
+    %w[new -h],
+    %w[new]
+  ].each do |args|
+    test "shows help for 'new' command with #{args.inspect} args" do
+      stdout = capture_io do
+        assert_raises(SystemExit) { Dopstick::CLI.start(args) }
+      end
+
+      stdout = stdout.join
+
+      refute Dir.exist?("./tmp/newgem")
+      assert_match(/Usage:\n\s+.*?new PATH/, stdout)
+      assert_includes stdout, "Create a new gem"
+    end
+  end
 end

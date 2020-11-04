@@ -48,13 +48,18 @@ module Dopstick
            type: :array,
            desc: "Set Ruby versions that are officially supported. Multiple " \
                  "versions must separated by space."
-    def new(path)
-      options = dup_options
+    option :help,
+           aliases: "-h",
+           type: :boolean,
+           hide: true
+    def new(path = nil)
+      interrupt_with_help(:new) if options[:help] || path.to_s.strip.empty?
+
       gem_name, namespace = expand_gem_name_and_namespace(path)
 
       generator = Generator.new
       generator.destination_root = File.expand_path(path)
-      generator.options = options.merge(
+      generator.options = dup_options.merge(
         gem_name: gem_name,
         namespace: namespace,
         entry_path: namespace.underscore("/")
@@ -64,6 +69,11 @@ module Dopstick
     end
 
     no_commands do
+      private def interrupt_with_help(command)
+        help(command)
+        exit
+      end
+
       private def dup_options
         options.each_with_object({}) do |(key, value), buffer|
           buffer[key.to_sym] = value
