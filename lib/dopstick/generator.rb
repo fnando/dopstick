@@ -49,6 +49,7 @@ module Dopstick
       template "feature_request.erb",
                ".github/ISSUE_TEMPLATE/feature_request.md"
       template "pull_request.erb", ".github/PULL_REQUEST_TEMPLATE.md"
+      template "dependabot.erb", ".github/dependabot.yml"
     end
 
     def copy_rakefile

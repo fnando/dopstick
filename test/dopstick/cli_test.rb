@@ -39,6 +39,7 @@ class CLITest < Minitest::Test
     assert gem_root.join("newgem.gemspec").file?
     assert gem_root.join("Rakefile").file?
     assert gem_root.join("README.md").file?
+    assert gem_root.join(".github/dependabot.yml").file?
     assert gem_root.join(".github/FUNDING.yml").file?
     assert gem_root.join(".github/PULL_REQUEST_TEMPLATE.md").file?
     assert gem_root.join(".github/workflows/tests.yml").file?
