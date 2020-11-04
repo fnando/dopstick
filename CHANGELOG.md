@@ -11,7 +11,7 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
-## Unreleased
+## v0.0.3 - 2020-11-03
 
 - [Changed] Remove unused `--repository` switch.
 - [Changed] Make `--help` and `-h` work with `dopstick new`.
