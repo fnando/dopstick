@@ -45,6 +45,7 @@ class CLITest < Minitest::Test
     assert gem_root.join(".github/workflows/tests.yml").file?
     assert gem_root.join(".github/ISSUE_TEMPLATE/bug_report.md").file?
     assert gem_root.join(".github/ISSUE_TEMPLATE/feature_request.md").file?
+    assert gem_root.join(".github/CODEOWNERS").file?
     assert gem_root.join("bin/console").executable?
     assert gem_root.join("bin/setup").executable?
     assert gem_root.join("lib/newgem.rb").file?

@@ -38,7 +38,7 @@ your contribution is according to how this project works.
    "Unreleased" section. If this section is not available, create one right
    before the last version.
 5. Push to your branch - `git push origin my_branch`
-6. [Create a pull request](https://docs.github.com/articles/creating-a-pull-request)
+6. [Create a pull request](https://help.github.com/articles/creating-a-pull-request)
 7. That's it!
 
 ## Styleguides
