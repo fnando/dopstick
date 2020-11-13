@@ -35,7 +35,7 @@ module Dopstick
     end
 
     def copy_changelog
-      copy_file "CHANGELOG.md"
+      template "changelog.erb", "CHANGELOG.md"
     end
 
     def copy_contributing
