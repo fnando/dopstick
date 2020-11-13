@@ -18,28 +18,17 @@ module Dopstick
       File.join(__dir__, "templates")
     end
 
-    def copy_gemspec
+    def copy_generic_templates
       template "gemspec.erb", "#{gem_name}.gemspec"
-    end
-
-    def copy_license
       template "license.erb", "LICENSE.md"
-    end
-
-    def copy_coc
       template "coc.erb", "CODE_OF_CONDUCT.md"
-    end
-
-    def copy_readme
       template "readme.erb", "README.md"
-    end
-
-    def copy_changelog
       template "changelog.erb", "CHANGELOG.md"
-    end
-
-    def copy_contributing
       template "contributing.erb", "CONTRIBUTING.md"
+      template "rakefile.erb", "Rakefile"
+      template "rubocop.erb", ".rubocop.yml"
+      template "gitignore.erb", ".gitignore"
+      template "gemfile.erb", "Gemfile"
     end
 
     def copy_github_templates
@@ -51,22 +40,6 @@ module Dopstick
       template "pull_request.erb", ".github/PULL_REQUEST_TEMPLATE.md"
       template "dependabot.erb", ".github/dependabot.yml"
       template "codeowners.erb", ".github/CODEOWNERS"
-    end
-
-    def copy_rakefile
-      template "rakefile.erb", "Rakefile"
-    end
-
-    def copy_rubocop
-      template "rubocop.erb", ".rubocop.yml"
-    end
-
-    def copy_gitignore
-      template "gitignore.erb", ".gitignore"
-    end
-
-    def copy_gemfile
-      template "gemfile.erb", "Gemfile"
     end
 
     def copy_bins
