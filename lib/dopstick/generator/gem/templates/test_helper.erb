@@ -4,7 +4,7 @@ require "simplecov"
 SimpleCov.start
 
 require "bundler/setup"
-require <%= gem_name.inspect %>
+require <%= options.package_name.inspect %>
 
 require "minitest/utils"
 require "minitest/autorun"

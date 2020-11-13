@@ -9,10 +9,14 @@ module Dopstick
       true
     end
 
-    desc "new PATH", "Create a new gem"
+    desc "new PATH", "Create a new package"
+    option :type,
+           default: "",
+           desc: "Set the package type you want to create. Must be one of " \
+                 "#{Generator.registered.keys.inspect}."
     option :name,
            default: "",
-           desc: "Set the gem name. Defaults to path's basename."
+           desc: "Set the package name. Defaults to path's basename."
     option :active_record,
            default: false,
            type: :boolean,
@@ -31,8 +35,8 @@ module Dopstick
            desc: "Set Paypal account for donations. Defaults to " \
                  "`git config user.paypal`."
     option :description,
-           default: "",
-           desc: "Set gem description."
+           default: "TODO: add a description",
+           desc: "Set package description."
     option :version,
            default: "0.0.0",
            desc: "Set package initial version."
@@ -55,14 +59,25 @@ module Dopstick
     def new(path = nil)
       interrupt_with_help(:new) if options[:help] || path.to_s.strip.empty?
 
-      gem_name, namespace = expand_gem_name_and_namespace(path)
+      unless Generator.registered.include?(options[:type])
+        interrupt_with_error(
+          "--type must be one of #{Generator.registered.keys.inspect}"
+        )
+      end
 
-      generator = Generator.new
+      package_name, namespace = expand_gem_name_and_namespace(path)
+
+      generator_module = Generator.registered[options[:type]]
+      generator_class = generator_module.const_get(:Generator)
+      options_class = generator_module.const_get(:Options)
+      generator = generator_class.new
       generator.destination_root = File.expand_path(path)
-      generator.options = dup_options.merge(
-        gem_name: gem_name,
-        namespace: namespace,
-        entry_path: namespace.underscore("/")
+      generator.options = options_class.new(
+        dup_options.merge(
+          package_name: package_name,
+          namespace: namespace,
+          entry_path: namespace.underscore("/")
+        )
       )
 
       generator.invoke_all
@@ -74,13 +89,18 @@ module Dopstick
         exit
       end
 
+      private def interrupt_with_error(message)
+        shell.say "ERROR: #{message}", :red
+        exit 1
+      end
+
       private def dup_options
         options.each_with_object({}) do |(key, value), buffer|
           buffer[key.to_sym] = value
         end
       end
 
-      private def expand_gem_name_and_namespace(path) # rubocop:disable Metrics/AbcSize
+      private def expand_gem_name_and_namespace(path)
         if options[:name].presence && options[:namespace].presence
           [options[:name], options[:namespace]]
         elsif options[:name].presence

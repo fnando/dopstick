@@ -11,11 +11,16 @@ AllCops:
     - vendor/**/*
 
 Metrics/BlockLength:
-  Exclude:
-    - test/**/*
-    - "**/*.gemspec"
+  Enabled: false
 
 Metrics/ClassLength:
-  Exclude:
-    - test/**/*
-    - "**/*.gemspec"
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false

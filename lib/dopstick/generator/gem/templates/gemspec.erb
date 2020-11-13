@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require_relative "./lib/<%= entry_path %>/version"
+require_relative "./lib/<%= options.entry_path %>/version"
 
 Gem::Specification.new do |spec|
-  spec.name    = "<%= gem_name %>"
-  spec.version = <%= options[:namespace] %>::VERSION
-  spec.authors = [<%= user_name.inspect %>]
-  spec.email   = [<%= user_email.inspect %>]
+  spec.name    = "<%= options.package_name %>"
+  spec.version = <%= options.namespace %>::VERSION
+  spec.authors = [<%= options.user_name.inspect %>]
+  spec.email   = [<%= options.user_email.inspect %>]
 
-  spec.summary     = "Add some description"
+  spec.summary     = <%= options.package_description.inspect %>
   spec.description = spec.summary
   spec.license     = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= <%= oldest_ruby_version %>")
+  spec.required_ruby_version = Gem::Requirement.new(">= <%= options.oldest_ruby_version %>")
 
-  github_url = <%= github_url.inspect %>
-  github_tree_url = "#{github_url}/tree/v#{spec.version}"
+  github_url = <%= options.github_url.inspect %>
+  github_tree_url = "#{options.github_url}/tree/v#{spec.version}"
 
   spec.homepage = github_url
   spec.metadata["homepage_uri"] = spec.homepage
@@ -34,20 +34,20 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) {|f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  <%- if options[:active_record] -%>
+  <%- if options.active_record -%>
   spec.add_dependency "activerecord"
   <%- end -%>
-  <%- unless options[:bin].empty?  -%>
+  <%- if options.bin?  -%>
   spec.add_dependency "thor"
   <%- end -%>
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "minitest-utils"
+  <%- if options.active_record? -%>
+  spec.add_development_dependency "pg"
+  <%- end -%>
   spec.add_development_dependency "pry-meta"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-fnando"
   spec.add_development_dependency "simplecov"
-  <%- if options[:active_record] -%>
-  spec.add_development_dependency "pg"
-  <%- end -%>
 end

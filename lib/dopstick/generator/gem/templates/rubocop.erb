@@ -1,0 +1,12 @@
+---
+inherit_gem:
+  rubocop-fnando: .rubocop.yml
+
+AllCops:
+  TargetRubyVersion: <%= options.oldest_ruby_version.split(".").take(2).join(".") %>
+  NewCops: enable
+<%- if options.package_name.include?("-") -%>
+Naming/FileName:
+  Exclude:
+    - lib/<%= options.package_name %>.rb
+<%- end -%>

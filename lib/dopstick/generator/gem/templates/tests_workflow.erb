@@ -1,4 +1,4 @@
-name: Tests
+name: ruby-tests
 
 on:
   pull_request:
@@ -18,11 +18,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [<%= ruby_versions.map {|v| [*Gem::Version.new(v).canonical_segments, "x"].take(3).join(".") }.join(", ") %>]
+        ruby: [<%= options.ruby_versions.map {|v| [*Gem::Version.new(v).canonical_segments, "x"].take(3).join(".") }.join(", ") %>]
         gemfile:
           - Gemfile
 
-    <%- if options[:active_record] -%>
+    <%- if options.active_record? -%>
     services:
       postgres:
         image: postgres:11.5
@@ -48,7 +48,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
 
-      <%- if options[:active_record] -%>
+      <%- if options.active_record? -%>
       - name: Install PostgreSQL client
         env:
           PGHOST: localhost
