@@ -1,0 +1,7 @@
+import { name } from "~/index";
+
+describe("<%= options.package_name %>", () => {
+  test("passes", () => {
+    expect(name).toEqual("<%= options.package_name %>");
+  });
+});

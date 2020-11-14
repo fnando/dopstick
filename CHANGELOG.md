@@ -19,6 +19,8 @@ Prefix your message with one of the following:
 - [Changed] Add Postgres env vars so tests can run smoothly.
 - [Added] Add helper method to create migration classes with `--active-record`.
 - [Added] Generate `.github/CODEOWNERS` template.
+- [Changed] Generate Ruby packages with `--type gem`
+- [Added] Generate NPM packages with `--type npm`.
 
 ## v0.0.3 - 2020-11-03
 

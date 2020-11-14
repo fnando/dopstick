@@ -1,0 +1,42 @@
+<%= JSON.pretty_generate(
+  name: options.package_name,
+  version: options.version,
+  private: true,
+  description: options.description,
+  author: {
+    name: options.user_name,
+    email: options.user_email,
+    url: options.user_url,
+  },
+  homepage: options.github_url,
+  license: "MIT",
+  bugs: "#{options.github_url}/issues",
+  repository: "#{options.github_url}.git",
+  scripts: {
+    test: "jest --watch",
+    "test:ci" => "jest && yarn lint",
+    lint: "yarn lint:ts && yarn lint:eslint",
+    "lint:ts" => "tsc --noEmit",
+    "lint:eslint" => "eslint src --max-warnings 0",
+    build: "rm -rf dist && webpack"
+  },
+  devDependencies: {
+    "@babel/core" => "*",
+    "@babel/preset-env" => "*",
+    "@fnando/codestyle" => "*",
+    "@fnando/eslint-config-codestyle" => "*",
+    "@typescript-eslint/eslint-plugin" => "*",
+    "@typescript-eslint/parser" => "*",
+    "babel-loader" => "*",
+    "babel-plugin-module-resolver" => "*",
+    "eslint" => "*",
+    "jest" => "*",
+    "jest-filename-transform" => "*",
+    "prettier" => "*",
+    "ts-jest" => "*",
+    "ts-loader" => "*",
+    "typescript" => "*",
+    "webpack" => "*",
+    "webpack-cli" => "*"
+  }
+) %>

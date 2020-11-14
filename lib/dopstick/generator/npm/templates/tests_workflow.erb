@@ -1,0 +1,46 @@
+name: node-tests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+  schedule:
+    - cron: "0 10 * * *"
+
+jobs:
+  build:
+    name: Tests with Node ${{ matrix.node }}
+    runs-on: "ubuntu-latest"
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [<%= options.node_versions.map {|v| Gem::Version.new(v).canonical_segments.first.to_s.inspect }.join(", ") %>]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: >
+            ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles("package.json") }}
+          restore-keys: >
+            ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles("package.json") }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install npm dependencies
+        run: |
+          yarn install
+
+      - name: Run Tests
+        run: |
+          yarn test:ci
+          yarn lint

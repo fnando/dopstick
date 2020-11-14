@@ -25,36 +25,36 @@ module Dopstick
         @options.key?(name) ? @options[name] : super
       end
 
-      def package_name
-        @options[:package_name]
+      def skip_install?
+        @options[:skip_install]
       end
 
-      def package_description
-        @options[:package_description]
+      def bin?
+        !@options[:bin].empty?
       end
 
       def user_name
         @user_name ||= @options[:author_name].presence ||
-                       `git config --global user.name`.chomp
+                       `git config user.name`.chomp.presence ||
+                       "Your Name"
       end
 
       def user_email
         @user_email ||= @options[:author_email].presence ||
-                        `git config --global user.email`.chomp
+                        `git config user.email`.chomp.presence ||
+                        "your@email.com"
       end
 
       def github_user
-        @github_user ||= @options[:author_github].presence || begin
-          user = `git config --global user.github`.chomp
-          user.empty? ? "[USER]" : user
-        end
+        @github_user ||= @options[:author_github].presence ||
+                         `git config user.github`.chomp.presence ||
+                         "[USER]"
       end
 
       def paypal_user
-        @paypal_user ||= @options[:author_paypal].presence || begin
-          user = `git config --global user.paypal`.chomp
-          user.empty? ? "[USER]" : user
-        end
+        @paypal_user ||= @options[:author_paypal].presence ||
+                         `git config user.paypal`.chomp.presence ||
+                         "[USER]"
       end
 
       def github_url

@@ -8,7 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Nando Vieira"]
   spec.email   = ["me@fnando.com"]
 
-  spec.summary     = "Generate a project skeleton for creating a rubygem"
+  spec.summary     = "Generate a project skeleton for creating a Ruby/Node" \
+                     "package."
   spec.description = spec.summary
   spec.license     = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")

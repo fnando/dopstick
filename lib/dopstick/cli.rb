@@ -52,6 +52,15 @@ module Dopstick
            type: :array,
            desc: "Set Ruby versions that are officially supported. Multiple " \
                  "versions must separated by space."
+    option :node_versions,
+           default: %w[14.x 12.x],
+           type: :array,
+           desc: "Set Node versions that are officially supported. Multiple " \
+                 "versions must separated by space."
+    option :skip_install,
+           default: false,
+           type: :boolean,
+           desc: "Skip `bundle install` (gem) and `yarn install` (npm)"
     option :help,
            aliases: "-h",
            type: :boolean,

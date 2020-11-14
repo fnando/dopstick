@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  Generate a project skeleton for creating a rubygem.
+  Generate a project skeleton for creating a Ruby/Node package.
 </p>
 
 <p align="center">
@@ -21,8 +21,11 @@ Features:
 
 - Github templates
 - Changelog
-- ActiveRecord setup (via `--active-record`)
-- CLI setup (via `--bin NAME`)
+- Generate Ruby packages
+  + ActiveRecord setup (via `--active-record`)
+  + CLI setup (via `--bin NAME`)
+- Generate NPM packages
+  + Setup TypeScript, Jest, and more!
 
 ## Installation
 

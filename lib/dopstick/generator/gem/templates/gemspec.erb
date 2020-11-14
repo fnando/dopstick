@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = [<%= options.user_name.inspect %>]
   spec.email   = [<%= options.user_email.inspect %>]
 
-  spec.summary     = <%= options.package_description.inspect %>
+  spec.summary     = <%= options.description.inspect %>
   spec.description = spec.summary
   spec.license     = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= <%= options.oldest_ruby_version %>")

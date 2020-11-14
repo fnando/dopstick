@@ -94,6 +94,14 @@ module Dopstick
           template "active_record.erb", "test/support/active_record.rb"
         end
 
+        def bundle_install
+          return if options.skip_install?
+
+          in_root do
+            run "bundle install"
+          end
+        end
+
         def initialize_repo
           in_root do
             run "git init --initial-branch=main", capture: true

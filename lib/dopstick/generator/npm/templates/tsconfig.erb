@@ -1,0 +1,14 @@
+<%= JSON.pretty_generate(
+  extends: "@fnando/codestyle",
+  include: %w[src],
+  compilerOptions: {
+    noEmit: false,
+    sourceMap: true,
+    declaration: true,
+    outDir: "dist",
+    baseUrl: ".",
+    paths: {
+      "~/*": ["src/*"]
+    }
+  }
+) %>
