@@ -11,7 +11,7 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
-## Unreleased
+## v0.0.4 - 2020-11-14
 
 - [Added] Generate
   [dependabot](https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates)
