@@ -11,6 +11,10 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
+## Unreleased
+
+- [Fixed] Jest configuration wasn't considering the full import path.
+
 ## v0.0.4 - 2020-11-14
 
 - [Added] Generate

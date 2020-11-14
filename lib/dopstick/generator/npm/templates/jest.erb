@@ -6,7 +6,7 @@ module.exports = {
   roots: ["<rootDir>/src"],
   modulePaths: ["src"],
   moduleNameMapper: {
-    "^~/": "<rootDir>/src/",
+    "^~/(.*?)$": "<rootDir>/src/$1",
   },
   testPathIgnorePatterns: ["/vendor/bundle/", "node_modules"],
 };
