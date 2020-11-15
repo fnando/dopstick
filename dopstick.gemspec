@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Nando Vieira"]
   spec.email   = ["me@fnando.com"]
 
-  spec.summary     = "Generate a project skeleton for creating a Ruby/Node" \
+  spec.summary     = "Generate a project skeleton for creating a Ruby/NPM " \
                      "package."
   spec.description = spec.summary
   spec.license     = "MIT"
