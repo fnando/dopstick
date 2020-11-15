@@ -11,6 +11,11 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
+## Unreleased
+
+- [Fixed] Babel loader's order is backwards, so TypeScript first, then
+  JavaScript.
+
 ## v0.0.5 - 2020-11-14
 
 - [Fixed] Jest configuration wasn't considering the full import path.
