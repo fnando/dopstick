@@ -111,7 +111,7 @@ module Dopstick
         end
 
         no_commands do
-          def render_tree(skip_content_spaces = false, &block)
+          def render_tree(skip_content_spaces = false)
             content = []
 
             options.namespace_names.each_with_index do |name, count|
@@ -120,7 +120,7 @@ module Dopstick
 
             spacer = skip_content_spaces ? "" : "  "
 
-            content << (spacer * options.namespace_size) + block.call
+            content << (spacer * options.namespace_size) + yield
 
             (options.namespace_size - 1).downto(0) do |count|
               content << "#{'  ' * count}end"
