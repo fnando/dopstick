@@ -11,7 +11,13 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
-## Unreleased
+## v0.0.7 - 2021-12-04
+
+- [Fixed] Set proper package ecosystem on dependabot's config file.
+- [Changed] Update ruby default versions to 2.7 and 3.0.
+- [Changed] Update node default versions to 16 and 17.
+
+## v0.0.6 - 2020-12-09
 
 - [Fixed] Babel loader's order is backwards, so TypeScript first, then
   JavaScript.
