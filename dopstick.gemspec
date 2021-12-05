@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Dopstick::VERSION
   spec.authors = ["Nando Vieira"]
   spec.email   = ["me@fnando.com"]
+  spec.metadata = {"rubygems_mfa_required" => "true"}
 
   spec.summary     = "Generate a project skeleton for creating a Ruby/NPM " \
                      "package."
