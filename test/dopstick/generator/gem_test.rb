@@ -62,6 +62,9 @@ class GemTest < Minitest::Test
 
     assert_equal %w[2.6.x 2.7.x],
                  workflow_yml.dig("jobs", "build", "strategy", "matrix", "ruby")
+
+    assert_equal "bundler",
+                 dependabot_yml.dig("updates", 1, "package-ecosystem")
   end
 
   test "creates gems using custom name" do

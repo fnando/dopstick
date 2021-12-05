@@ -115,12 +115,12 @@ module Dopstick
             content = []
 
             options.namespace_names.each_with_index do |name, count|
-              content << ("  " * count) + "module #{name}"
+              content << (("  " * count) + "module #{name}")
             end
 
             spacer = skip_content_spaces ? "" : "  "
 
-            content << (spacer * options.namespace_size) + yield
+            content << ((spacer * options.namespace_size) + yield)
 
             (options.namespace_size - 1).downto(0) do |count|
               content << "#{'  ' * count}end"
@@ -152,6 +152,10 @@ module Dopstick
             ERB.new(
               File.read("#{self.class.source_root}/#{file}")
             ).result(binding)
+          end
+
+          def dependabot_package_ecosystem
+            "bundler"
           end
         end
       end

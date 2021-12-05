@@ -94,6 +94,12 @@ module Dopstick
             run "git add .", capture: true
           end
         end
+
+        no_commands do
+          def dependabot_package_ecosystem
+            "npm"
+          end
+        end
       end
     end
   end
