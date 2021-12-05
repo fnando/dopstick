@@ -26,7 +26,7 @@ class NPMTest < Minitest::Test
     end
   end
 
-  test "creates gems with defaults" do
+  test "creates npm package with defaults" do
     capture_io do
       run_command [pkg_root]
     end
@@ -58,7 +58,14 @@ class NPMTest < Minitest::Test
       pkg_root.join(".github/workflows/js-tests.yml")
     )
 
-    assert_equal %w[14 12],
+    dependabot_yml = YAML.load_file(
+      pkg_root.join(".github/dependabot.yml")
+    )
+
+    assert_equal %w[16 17],
                  workflow_yml.dig("jobs", "build", "strategy", "matrix", "node")
+
+    assert_equal "npm",
+                 dependabot_yml.dig("updates", 1, "package-ecosystem")
   end
 end

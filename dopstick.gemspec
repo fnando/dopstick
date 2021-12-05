@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
                      "package."
   spec.description = spec.summary
   spec.license     = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
 
   github_url = "https://github.com/fnando/dopstick"
   github_tree_url = "#{github_url}/tree/v#{spec.version}"

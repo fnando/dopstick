@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = <%= options.namespace %>::VERSION
   spec.authors = [<%= options.user_name.inspect %>]
   spec.email   = [<%= options.user_email.inspect %>]
+  spec.metadata = {"rubygems_mfa_required" => "true"}
 
   spec.summary     = <%= options.description.inspect %>
   spec.description = spec.summary

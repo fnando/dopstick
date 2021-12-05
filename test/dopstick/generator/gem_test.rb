@@ -60,7 +60,11 @@ class GemTest < Minitest::Test
       pkg_root.join(".github/workflows/ruby-tests.yml")
     )
 
-    assert_equal %w[2.6.x 2.7.x],
+    dependabot_yml = YAML.load_file(
+      pkg_root.join(".github/dependabot.yml")
+    )
+
+    assert_equal %w[2.7 3.0],
                  workflow_yml.dig("jobs", "build", "strategy", "matrix", "ruby")
 
     assert_equal "bundler",
@@ -148,7 +152,7 @@ class GemTest < Minitest::Test
       pkg_root.join(".github/workflows/ruby-tests.yml")
     )
 
-    assert_equal %w[2.6.3 2.7.x],
+    assert_equal %w[2.6.3 2.7],
                  workflow_yml.dig("jobs", "build", "strategy", "matrix", "ruby")
     assert_includes pkg_root.join("newgem.gemspec").read,
                     %[Gem::Requirement.new(">= 2.6.3")]

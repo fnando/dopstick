@@ -48,12 +48,12 @@ module Dopstick
            desc: "Set the codebase namespace. By default, it's inferred from " \
                  "the gem name."
     option :ruby_versions,
-           default: %w[2.6 2.7],
+           default: %w[2.7 3.0],
            type: :array,
            desc: "Set Ruby versions that are officially supported. Multiple " \
                  "versions must separated by space."
     option :node_versions,
-           default: %w[14.x 12.x],
+           default: %w[16.x 17.x],
            type: :array,
            desc: "Set Node versions that are officially supported. Multiple " \
                  "versions must separated by space."

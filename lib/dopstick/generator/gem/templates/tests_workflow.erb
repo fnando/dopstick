@@ -2,17 +2,9 @@ name: ruby-tests
 
 on:
   pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
-
-  schedule:
-    - cron: "0 10 * * *"
-
   workflow_dispatch:
-      inputs: {}
+    inputs: {}
 
 jobs:
   build:
@@ -21,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [<%= options.ruby_versions.map {|v| [*Gem::Version.new(v).canonical_segments, "x"].take(3).join(".") }.join(", ") %>]
+        ruby: [<%= ruby_versions_for_workflow %>]
         gemfile:
           - Gemfile
 

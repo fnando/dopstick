@@ -1,3 +1,4 @@
+---
 name: Tests
 
 on:
@@ -18,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [2.6.x, 2.7.x]
+        ruby: [2.7.x, 3.0.x]
         gemfile:
           - Gemfile
 
