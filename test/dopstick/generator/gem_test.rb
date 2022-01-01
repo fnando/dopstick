@@ -64,7 +64,7 @@ class GemTest < Minitest::Test
       pkg_root.join(".github/dependabot.yml")
     )
 
-    assert_equal %w[2.7 3.0],
+    assert_equal %w[2.7 3.0 3.1],
                  workflow_yml.dig("jobs", "build", "strategy", "matrix", "ruby")
 
     assert_equal "bundler",

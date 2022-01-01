@@ -1,23 +1,21 @@
+---
 name: node-tests
 
 on:
-  pull_request:
-    branches:
-      - main
+  pull_request_target:
   push:
     branches:
       - main
-
-  schedule:
-    - cron: "0 10 * * *"
-
   workflow_dispatch:
-      inputs: {}
+    inputs: {}
 
 jobs:
   build:
     name: Tests with Node ${{ matrix.node }}
     runs-on: "ubuntu-latest"
+    if: |
+      github.actor == 'dependabot[bot]' && github.event_name == 'pull_request_target' ||
+      github.actor != 'dependabot[bot]'
     strategy:
       fail-fast: false
       matrix:
@@ -30,8 +28,6 @@ jobs:
         with:
           path: vendor/bundle
           key: >
-            ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles("package.json") }}
-          restore-keys: >
             ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles("package.json") }}
 
       - name: Set up Node

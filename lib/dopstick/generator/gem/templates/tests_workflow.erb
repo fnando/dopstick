@@ -1,8 +1,11 @@
+---
 name: ruby-tests
 
 on:
-  pull_request:
+  pull_request_target:
   push:
+    branches:
+      - main
   workflow_dispatch:
     inputs: {}
 
@@ -10,6 +13,9 @@ jobs:
   build:
     name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
     runs-on: "ubuntu-latest"
+    if: |
+      github.actor == 'dependabot[bot]' && github.event_name == 'pull_request_target' ||
+      github.actor != 'dependabot[bot]'
     strategy:
       fail-fast: false
       matrix:
@@ -34,8 +40,6 @@ jobs:
         with:
           path: vendor/bundle
           key: >
-            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
-          restore-keys: >
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
 
       - name: Set up Ruby
