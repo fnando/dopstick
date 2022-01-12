@@ -67,8 +67,10 @@ jobs:
 
       - name: Run Tests
         env:
+          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+          <%- if options.active_record? -%>
           PGHOST: localhost
           PGUSER: postgres
-          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
+          <%- end -%>
         run: |
           bundle exec rake

@@ -5,6 +5,9 @@ inherit_gem:
 AllCops:
   TargetRubyVersion: <%= options.oldest_ruby_version.split(".").take(2).join(".") %>
   NewCops: enable
+  Exclude:
+    - vendor/**/*
+    - gemfiles/**/*
 <%- if options.package_name.include?("-") -%>
 Naming/FileName:
   Exclude:
