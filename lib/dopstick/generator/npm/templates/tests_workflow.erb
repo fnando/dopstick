@@ -28,7 +28,7 @@ jobs:
         with:
           path: vendor/bundle
           key: >
-            ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles("package.json") }}
+            ${{ runner.os }}-${{ matrix.node }}-npm-${{ hashFiles('package.json') }}
 
       - name: Set up Node
         uses: actions/setup-node@v2-beta

@@ -51,6 +51,8 @@ module Dopstick
           template "feature_request.erb",
                    ".github/ISSUE_TEMPLATE/feature_request.md"
           template "pull_request.erb", ".github/PULL_REQUEST_TEMPLATE.md"
+          template "issue_template_config.erb",
+                   ".github/ISSUE_TEMPLATE/config.yml"
           template "dependabot.erb", ".github/dependabot.yml"
           template "codeowners.erb", ".github/CODEOWNERS"
         end
