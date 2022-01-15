@@ -73,6 +73,7 @@ module Dopstick
               @fnando/eslint-config-codestyle
               @typescript-eslint/eslint-plugin
               @typescript-eslint/parser
+              @types/jest
               babel-loader
               babel-plugin-module-resolver
               eslint
