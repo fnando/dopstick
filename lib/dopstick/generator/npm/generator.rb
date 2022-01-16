@@ -30,7 +30,6 @@ module Dopstick
 
         def copy_npm_templates
           template "package.erb", "package.json"
-          template "tests_workflow.erb", ".github/workflows/js-tests.yml"
           template "tsconfig.erb", "tsconfig.json"
           template "prettier.erb", "prettier.config.js"
           template "jest.erb", "jest.config.js"
@@ -51,6 +50,7 @@ module Dopstick
         end
 
         def copy_github_templates
+          template "tests_workflow.erb", ".github/workflows/js-tests.yml"
           template "funding.erb", ".github/FUNDING.yml"
           template "bug_report.erb", ".github/ISSUE_TEMPLATE/bug_report.md"
           template "feature_request.erb",
