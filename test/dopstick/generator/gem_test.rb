@@ -106,6 +106,7 @@ class GemTest < Minitest::Test
                     %[require "heyho/lets_go"]
 
     rubocop = YAML.load_file(pkg_root.join(".rubocop.yml"))
+
     assert_includes rubocop.dig("Naming/FileName", "Exclude"),
                     "lib/heyho-lets_go.rb"
   end
@@ -158,7 +159,8 @@ class GemTest < Minitest::Test
                     %[Gem::Requirement.new(">= 2.6.3")]
 
     rubocop = YAML.load_file(pkg_root.join(".rubocop.yml"))
-    assert_equal 2.6, rubocop.dig("AllCops", "TargetRubyVersion")
+
+    assert_in_delta(2.6, rubocop.dig("AllCops", "TargetRubyVersion"))
   end
 
   test "creates gems with activerecord config" do

@@ -24,3 +24,6 @@ Metrics/AbcSize:
 
 Style/OptionalBooleanParameter:
   Enabled: false
+
+Gemspec/AttributeAssignment:
+  Enabled: false

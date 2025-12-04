@@ -162,7 +162,7 @@ module Dopstick
 
           def ruby_versions_for_workflow
             options.ruby_versions.map do |v|
-              canonical_segments = ::Gem::Version.new(v).canonical_segments
+              canonical_segments = ::Gem::Version.new(v).canonical_segments.dup
               canonical_segments << 0 if canonical_segments.size < 2
 
               canonical_segments.join(".").inspect

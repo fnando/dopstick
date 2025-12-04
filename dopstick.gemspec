@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "./lib/dopstick/version"
+require_relative "lib/dopstick/version"
 
 Gem::Specification.new do |spec|
   spec.name    = "dopstick"
@@ -39,7 +39,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "minitest-utils"
-  spec.add_development_dependency "pry-meta"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rubocop"
   spec.add_development_dependency "rubocop-fnando"
