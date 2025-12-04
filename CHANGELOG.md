@@ -11,6 +11,10 @@ Prefix your message with one of the following:
 - [Security] in case of vulnerabilities.
 -->
 
+## v0.0.13 - 2025-12-04
+
+- [Fixed] Fix issue with frozen array being returned by `Gem::Version`.
+
 ## v0.0.7 - 2021-12-04
 
 - [Fixed] Set proper package ecosystem on dependabot's config file.
